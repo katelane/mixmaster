@@ -1,0 +1,15 @@
+<h1>Mix</h1>
+
+<h2><%= @mix.title %></h2>
+    <%= @mix.description %>
+<hr>
+    <% if logged_in? %>
+    <p>
+      <%= link_to "EDIT", edit_mix_path(@mix) %> |
+      <%= link_to "DELETE", mix_path(@mix), method: :delete, data: {confirm: "Do you really want to delete this mix?"} %>
+    </p>
+    <% end %>
+
+    <br>
+
+    <p><%= link_to "<< Back to All Mixes", mixes_path %></p>

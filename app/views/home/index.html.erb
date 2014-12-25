@@ -1,0 +1,12 @@
+<h1>Home</h1>
+
+<p><%= link_to 'Create New Mix', new_mix_path %></p>
+<p><%= link_to 'View All Mixes', mixes_path %></p>
+<p>some sort of filtering - most popular songs?</p>
+
+<% if logged_in? %>
+<%= "Logged in as #{current_user.username}" %>
+<%= link_to "(logout)", logout_path %>
+<% else %>
+<%= link_to "(login)", login_path %>
+<% end %>

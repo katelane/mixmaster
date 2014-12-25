@@ -1,0 +1,11 @@
+<h1>All Mixes</h1>
+
+<ul id="mixes">
+  <% @mixes.each do |mix| %>
+  <li>
+    <strong><%= mix.title %></strong> : <%= mix.description %>
+  </li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'HOME', root_path %></p>

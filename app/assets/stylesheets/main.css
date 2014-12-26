@@ -1,0 +1,35 @@
+html {
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+  background: #fff;
+}
+
+header {
+  width: 100%;
+  font-family: 'Convergence', sans-serif;
+  font-size: 1.1em;
+}
+
+header ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+header li.even {
+  background: #d9e6f1;
+  padding-left: 20px;
+}
+
+header li.odd {
+  background: #a5ccf3;
+  padding-left: 20px;
+}
+
+h1 {
+  font-family: 'Convergence', sans-serif;
+  font-weight: 400;
+}

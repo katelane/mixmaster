@@ -2,11 +2,15 @@
 <html>
 <head>
   <title>Mixmaster</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "application" %>
+  <link href='main.css' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Convergence' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<%= render partial: "layouts/header" %>
 
 <%= yield %>
 

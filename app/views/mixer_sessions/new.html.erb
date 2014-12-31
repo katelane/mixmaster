@@ -1,19 +1,21 @@
 <h1>Login</h1>
 
 <%= form_tag mixer_sessions_path, method: :post do %>
-<div class="field">
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-  <br/>
-</div>
-<div class="field">
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <br/>
-</div>
-<div class="actions">
-  <%= submit_tag "Login" %>
-</div>
-<% end %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <br/>
+  </div>
 
-<p class="note"><%= link_to 'Back', mixes_path %></p>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <br/>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Login" %>
+  </div>
+  <% end %>
+
+<p><%= link_to 'Back', root_path %></p>

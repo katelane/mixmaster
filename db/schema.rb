@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222175534) do
+ActiveRecord::Schema.define(version: 20141228213449) do
 
   create_table "artists", force: true do |t|
     t.string   "title"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20141222175534) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "mix_songs", force: true do |t|
+    t.integer  "mix_id"
+    t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mix_songs", ["mix_id"], name: "index_mix_songs_on_mix_id"
+  add_index "mix_songs", ["song_id"], name: "index_mix_songs_on_song_id"
 
   create_table "mixers", force: true do |t|
     t.string   "username",         null: false
@@ -39,12 +49,14 @@ ActiveRecord::Schema.define(version: 20141222175534) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mixer_id"
+    t.string   "recipient"
   end
 
   create_table "songs", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "artist"
+    t.integer  "artist_id",  limit: 255
     t.string   "title"
   end
 

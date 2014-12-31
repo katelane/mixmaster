@@ -3,11 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :mixes
-
   resources :songs
-
   resources :artists
-
   resources :mixers
 
   resources :mixer_sessions, only: [ :new, :create, :destroy ]

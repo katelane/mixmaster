@@ -1,21 +1,28 @@
 class MixerSessionsController < ApplicationController
 
   def new
+    redirect_to '/auth/twitter'
   end
 
   def create
-    if login(params[:email], params[:password])
-      redirect_back_or_to(mixes_path, notice: 'Logged in successfully.')
-    else
-      flash.now.alert = "Login failed."
-      render action: :new
-    end
+    user = User.find_or_create_from_auth_hash(auth_hash)
+    session[:mixer_id] = mixer.id
+    redirect_to root_path, notice: "Logged in as #{mixer.username}"
   end
 
   def destroy
-    logout
-    redirect_to(:mixers, notice: 'Logged out!')
+    session.clear
+    redirect_to root_path, notice: 'Signed out!'
   end
 
+  def failure
+    redirect_to root_path, alert: 'Authentication error!'
+  end
+
+  private
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 
 end

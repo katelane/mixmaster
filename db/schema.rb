@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228213449) do
+ActiveRecord::Schema.define(version: 20150121042049) do
 
   create_table "artists", force: true do |t|
     t.string   "title"
@@ -34,15 +34,12 @@ ActiveRecord::Schema.define(version: 20141228213449) do
   add_index "mix_songs", ["song_id"], name: "index_mix_songs_on_song_id"
 
   create_table "mixers", force: true do |t|
-    t.string   "username",         null: false
-    t.string   "email",            null: false
-    t.string   "crypted_password", null: false
-    t.string   "salt",             null: false
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
-
-  add_index "mixers", ["email"], name: "index_mixers_on_email", unique: true
 
   create_table "mixes", force: true do |t|
     t.string   "title"

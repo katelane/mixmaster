@@ -7,15 +7,11 @@ Rails.application.routes.draw do
   resources :artists
   resources :mixers
 
-  resources :mixer_sessions, only: [ :new, :create, :destroy ]
+  resources :mixer_sessions, only: [ :create ]
 
-  get 'login'  => 'mixer_sessions#new'
-  get 'logout' => 'mixer_sessions#destroy'
+  get "/login" => redirect("/auth/twitter"), as: :login
+  delete '/mixer_sessions', to: 'mixer_sessions#destroy'
+  get '/auth/:provider/callback', to: 'mixer_sessions#create'
+  get '/auth/failure' => 'mixer_sessions#failure'
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
